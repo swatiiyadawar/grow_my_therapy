@@ -1,40 +1,55 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, staggerContainer, viewportOptions } from "@/lib/animations";
 
 export default function Professional() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   const backgroundItems = [
     {
-      title: "Education & Training",
-      content: "Master's degree in Clinical Psychology from the University of Toronto. Advanced training in Cognitive Behavioral Therapy, EMDR, and trauma-informed care. Ongoing professional development through workshops and peer supervision groups."
+      title: "Education & Credentials",
+      content: "Doctor of Psychology (PsyD) in Clinical Psychology from an APA-accredited program. My doctoral training emphasized evidence-based practice, with specialized coursework in trauma-focused interventions, cognitive-behavioral therapy, and integrative approaches to mental health."
     },
     {
-      title: "Clinical Experience",
-      content: "Over 10 years of experience working with individuals, couples, and families. Specialized work with anxiety, depression, relationship challenges, and life transitions. Previous roles at community health centers and private practice settings."
+      title: "California Licensure",
+      content: "Licensed Clinical Psychologist (PSY #XXXXX) in the State of California. I maintain full credentials to provide individual psychotherapy both in-person at my Santa Monica office and via secure telehealth to adults throughout California."
     },
-   
+    {
+      title: "Specialized Training",
+      content: "EMDR-trained clinician for trauma processing. Additional certifications in somatic experiencing, mindfulness-based cognitive therapy (MBCT), and advanced training in treating anxiety disorders, PTSD, and complex trauma in adults."
+    }
   ];
+
+  const toggleItem = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
     <>
-      {/* Accordion Section - Professional Background */}
-      <section id="professional" className="bg-[#f5ead6] py-20 md:py-32">
-        <div className="px-6 md:px-12 lg:px-20 max-w-5xl mx-auto">
+      {/* Accordion Section - My Professional Background */}
+      <section id="professional" className="bg-[#D5CEC4] py-20 md:py-28">
+        <div className="px-6 md:px-12 lg:px-20 max-w-[700px] mx-auto">
           {/* Centered Heading */}
           <motion.div 
-            className="text-center mb-12 md:mb-16"
+            className="text-center mb-10"
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
             variants={staggerContainer}
           >
-            <motion.h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2b3b2b] leading-tight mb-4" variants={fadeUp}>
-              Professional Background
+            <motion.h2 
+              className="text-[#1F4E5F] leading-[1.1] tracking-[-0.02em]"
+              style={{ 
+                fontFamily: "var(--font-cormorant)",
+                fontSize: 'clamp(28px, 4vw, 42px)',
+                fontWeight: 500,
+              }}
+              variants={fadeUp}
+            >
+              My Professional Background
             </motion.h2>
-            <motion.p className="text-lg md:text-xl text-[#4b5a4b] max-w-3xl mx-auto" variants={fadeUp}>
-              Learn more about my training, experience, and approach to therapy.
-            </motion.p>
           </motion.div>
 
           {/* Full-Width Accordion */}
@@ -46,58 +61,95 @@ export default function Professional() {
             variants={staggerContainer}
           >
             {backgroundItems.map((item, index) => (
-              <motion.details
+              <motion.div
                 key={index}
-                className="group border-t border-[#d4c4a8] last:border-b"
+                className="border-t border-[#1F4E5F]/40 last:border-b"
                 variants={fadeUp}
               >
-                <summary className="flex items-center justify-between cursor-pointer py-6 md:py-8 hover:bg-[#f9f0e0] transition-colors duration-200 px-4 md:px-6">
-                  <h3 className="text-xl md:text-2xl font-semibold text-[#2b3b2b] pr-4">
+                <button 
+                  className="flex items-center justify-between w-full py-5 text-left"
+                  onClick={() => toggleItem(index)}
+                >
+                  <h3 
+                    className="text-[#1F4E5F] text-lg md:text-xl"
+                    style={{ fontFamily: "var(--font-cormorant)", fontWeight: 500 }}
+                  >
                     {item.title}
                   </h3>
-                  <span className="text-3xl text-[#4b5a4b] group-open:rotate-45 transition-transform duration-200 flex-shrink-0">
-                    +
+                  <span 
+                    className="text-[#7A9E8E] text-xl flex-shrink-0"
+                    style={{ fontFamily: "var(--font-cormorant)", fontWeight: 300 }}
+                  >
+                    {openIndex === index ? '—' : '+'}
                   </span>
-                </summary>
-                <div className="px-4 md:px-6 pb-6 md:pb-8">
-                  <p className="text-base md:text-lg text-[#4b5a4b] leading-relaxed max-w-4xl">
-                    {item.content}
-                  </p>
-                </div>
-              </motion.details>
+                </button>
+                
+                {/* Answer */}
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <p 
+                        className="text-[#1F4E5F] text-base pb-5 pl-6"
+                        style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                      >
+                        {item.content}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Full-Width CTA Section */}
-      <section id="cta-professional" className="bg-[#6b7755] py-20 md:py-32">
+      {/* Full-Width CTA Section - Get started today */}
+      <section id="cta-professional" className="bg-[#4A7C6F] py-20 md:py-28">
         <motion.div 
-          className="px-6 md:px-12 lg:px-20 max-w-4xl mx-auto text-center"
+          className="px-6 md:px-12 lg:px-20 max-w-[700px] mx-auto text-center"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
           variants={staggerContainer}
         >
           {/* Headline */}
-          <motion.h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6" variants={fadeUp}>
-            Ready to Begin Your Journey?
+          <motion.h2 
+            className="text-white leading-[1.2] tracking-[-0.02em] mb-6"
+            style={{ 
+              fontFamily: "var(--font-cormorant)",
+              fontSize: 'clamp(28px, 4vw, 42px)',
+              fontWeight: 500,
+            }}
+            variants={fadeUp}
+          >
+            Ready to Begin Therapy in Santa Monica?
           </motion.h2>
 
           {/* Supporting Text */}
-          <motion.p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-10 max-w-2xl mx-auto" variants={fadeUp}>
-            Take the first step towards meaningful change. Schedule a free consultation to discuss your goals and how therapy can support your well-being.
+          <motion.p 
+            className="text-white/80 text-base md:text-lg leading-[1.8] mb-10 max-w-xl mx-auto"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+            variants={fadeUp}
+          >
+            Taking the first step is often the hardest part. I offer a free 15-minute phone consultation to answer your questions and help you decide if we're a good fit. Let's start the conversation.
           </motion.p>
 
           {/* Outlined Button */}
-          <motion.button className="border-2 border-white text-white hover:bg-white hover:text-[#6b7755] font-semibold px-10 py-5 rounded-lg transition-all duration-300 text-base md:text-lg shadow-lg hover:shadow-xl" variants={fadeUp}>
-            Schedule Free Consultation
-          </motion.button>
-
-          {/* Additional Info */}
-          <motion.p className="text-sm md:text-base text-gray-200 mt-8" variants={fadeUp}>
-            No commitment required • 15-minute introductory call
-          </motion.p>
+          <motion.a 
+            href="/contact"
+            className="inline-flex items-center gap-3 border border-white bg-transparent text-white hover:bg-white hover:text-[#4A7C6F] px-8 py-4 transition-all duration-300 text-xs uppercase tracking-[0.2em] group"
+            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+            variants={fadeUp}
+          >
+            Book Your Free Consultation
+            <span className="text-base group-hover:translate-x-1 transition-transform">→</span>
+          </motion.a>
         </motion.div>
       </section>
     </>

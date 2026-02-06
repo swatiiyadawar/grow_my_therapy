@@ -1,63 +1,94 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeLeft, fadeRight, fadeUp, staggerContainer, viewportOptions } from "@/lib/animations";
+import { fadeUp, fadeRight, staggerContainer, viewportOptions } from "@/lib/animations";
 
 export default function Showcase() {
   return (
-    <section id="showcase" className="bg-[#f5ead6] py-20 md:py-32">
-      <div className="px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-center">
-          {/* Left Column - Text Content (45%) */}
+    <section id="showcase" className="bg-[#E5DED4] py-20 md:py-28">
+      <div className="px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column - Text Content */}
           <motion.div 
-            className="md:col-span-2 space-y-8"
+            className="text-left max-w-xl"
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
             variants={staggerContainer}
           >
             {/* Headline */}
-            <motion.h2 className="text-4xl md:text-5xl lg:text-5xl font-bold text-[#2b3b2b] leading-tight" variants={fadeUp}>
-              Transformative Results Through Dedicated Care
+            <motion.h2 
+              className="text-[#1F4E5F] leading-[1.1] tracking-[-0.02em] mb-6"
+              style={{ 
+                fontFamily: "var(--font-cormorant)",
+                fontSize: 'clamp(36px, 5vw, 52px)',
+                fontWeight: 500,
+              }}
+              variants={fadeUp}
+            >
+              Hi, I'm Dr. Maya.
             </motion.h2>
 
             {/* Body Paragraph */}
-            <motion.p className="text-lg md:text-xl text-[#4b5a4b] leading-relaxed" variants={fadeUp}>
-              Our clients experience profound shifts in their personal and professional lives. Through our evidence-based approach and compassionate guidance, we help you overcome challenges and unlock your full potential. Witness the remarkable transformations that await you.
+            <motion.p 
+              className="text-[#1F4E5F] text-base md:text-lg leading-[1.8] mb-10"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              variants={fadeUp}
+            >
+              I'm a licensed clinical psychologist based in Santa Monica, California. I work with adults experiencing anxiety, panic attacks, trauma, burnout, perfectionism, sleep difficulties, and relationship struggles—especially those navigating high-pressure careers or past experiences that continue to affect their confidence and sense of safety.
+            </motion.p>
+            
+            <motion.p 
+              className="text-[#1F4E5F] text-base md:text-lg leading-[1.8] mb-10"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              variants={fadeUp}
+            >
+              My approach is warm, grounded, and collaborative. I combine evidence-based methods—EMDR, CBT, mindfulness, and somatic work—with depth-oriented therapy that honors your whole self. If you're looking for practical tools AND meaningful healing, we may be a good fit.
             </motion.p>
 
             {/* Outlined CTA Button */}
-            <motion.button className="border-2 border-[#2b3b2b] text-[#2b3b2b] hover:bg-[#2b3b2b] hover:text-[#f5ead6] font-semibold px-8 py-4 rounded-lg transition-all duration-300 text-base md:text-lg" variants={fadeUp}>
-              Explore Success Stories
-            </motion.button>
+            <motion.div variants={fadeUp}>
+              <a 
+                href="/contact"
+                className="inline-flex items-center gap-3 border border-[#1F4E5F] bg-transparent text-[#1F4E5F] hover:bg-[#1F4E5F] hover:text-[#E5DED4] px-8 py-4 transition-all duration-300 text-xs uppercase tracking-[0.2em] group"
+                style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+              >
+                Let's Chat
+                <span className="text-base group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </motion.div>
           </motion.div>
 
-          {/* Right Column - Layered Images (55%) */}
+          {/* Right Column - Layered Images */}
           <motion.div 
-            className="md:col-span-3 relative h-96 md:h-full min-h-96 md:min-h-[600px]"
+            className="relative h-[500px] md:h-[600px] lg:h-[700px]"
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
             variants={fadeRight}
           >
-            {/* Primary Image - Tall Arched Shape (3:4) */}
-            <div className="absolute inset-0 md:static md:relative">
-              <div className="w-full h-full bg-gradient-to-b from-[#d4c4a8] to-[#c8b594] rounded-t-3xl md:rounded-t-4xl overflow-hidden shadow-lg">
-                <img
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80"
-                  alt="Transformation journey"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            {/* Primary Image - Tall Arched Shape */}
+            <div 
+              className="absolute top-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:left-8 w-[280px] md:w-[340px] lg:w-[400px] h-[450px] md:h-[520px] lg:h-[620px] overflow-hidden"
+              style={{ borderRadius: '9999px 9999px 0px 0px' }}
+            >
+              <img
+                src="/images/maya.jpg"
+                alt="Person holding lilac flowers"
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-              {/* Secondary Image - Circular Overlapping Bottom-Right */}
-              <div className="absolute -bottom-8 -right-8 md:-bottom-12 md:-right-12 w-40 h-40 md:w-56 md:h-56 bg-white rounded-full shadow-2xl overflow-hidden border-8 border-[#f5ead6]">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80"
-                  alt="Success story"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            {/* Secondary Image - Circular Overlapping Bottom-Right */}
+            <div 
+              className="absolute bottom-0 right-0 lg:right-0 w-[180px] h-[180px] md:w-[240px] md:h-[240px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden border-4 border-[#E5DED4]"
+            >
+              <img
+                src="./images/white.jpeg"
+                alt="White flowers"
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
         </div>

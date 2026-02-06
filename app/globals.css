@@ -1,9 +1,48 @@
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400&display=swap');
+
 @import "tailwindcss";
 @import "../styles/theme.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* TYPOGRAPHY */
+  --font-cormorant: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* PRIMARY COLORS */
+  --background: #FAF8F5;
+  --foreground: #1F4E5F;
+  --color-background: #FAF8F5;
+  --color-foreground: #1F4E5F;
+  
+  /* STRICT COLOR SYSTEM */
+  /* Primary Background - Cream */
+  --cream: #FAF8F5;
+  
+  /* Primary Text / Headings / Borders - Dark Teal */
+  --dark-teal: #1F4E5F;
+  
+  /* Accent / Hover / Icons - Sage Green */
+  --sage-green: #7A9E8E;
+  
+  /* Secondary Backgrounds / Cards - Light Taupe */
+  --light-taupe: #E5DED4;
+  
+  /* Image Container Backgrounds - Warm Stone */
+  --warm-stone: #D5CEC4;
+  
+  /* Rare Accent - Mauve (minimal use) */
+  --mauve: #C9A7A2;
+  
+  /* UI White */
+  --white: #FFFFFF;
+  
+  /* TEXT OPACITY VARIANTS */
+  --text-primary: rgba(31, 78, 95, 1);      /* #1F4E5F full opacity */
+  --text-80: rgba(31, 78, 95, 0.8);         /* 80% opacity */
+  --text-75: rgba(31, 78, 95, 0.75);        /* 75% opacity */
+  --text-70: rgba(31, 78, 95, 0.7);         /* 70% opacity */
+  --text-light: rgba(31, 78, 95, 0.3);      /* 30% opacity for dividers */
 }
 
 @theme inline {
@@ -13,19 +52,19 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-}
-
-* {
-  scroll-behavior: smooth;
+  font-family: var(--font-body);
 }

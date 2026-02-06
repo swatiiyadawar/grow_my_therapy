@@ -5,19 +5,19 @@ import { fadeUp, staggerContainer, cardVariant, viewportOptions } from "@/lib/an
 
 const services = [
   {
-    title: "Individual Therapy",
+    title: "Individual Psychotherapy",
     description:
-      "Personalized sessions focused on anxiety, burnout, and emotional regulation.",
+      "Personalized one-on-one therapy sessions integrating CBT, EMDR, and mindfulness-based approaches to address anxiety, depression, and life transitions.",
   },
   {
-    title: "Couples Therapy",
+    title: "EMDR Trauma Therapy",
     description:
-      "Improve communication, rebuild trust, and strengthen connection.",
+      "Specialized Eye Movement Desensitization and Reprocessing for processing single-incident trauma, PTSD, and complex developmental trauma safely and effectively.",
   },
   {
-    title: "Group Support",
+    title: "Telehealth for California",
     description:
-      "Small, supportive groups centered on shared challenges and growth.",
+      "Secure, HIPAA-compliant video sessions available to clients throughout California—bringing quality psychological care to you wherever you are.",
   },
 ];
 
@@ -33,13 +33,13 @@ export default function Services() {
           variants={staggerContainer}
         >
           <div>
-            <motion.h2 className="text-3xl font-semibold text-[#2E4A2F]" variants={fadeUp}>Services</motion.h2>
-            <motion.p className="mt-2 text-[#2E4A2F]/80" variants={fadeUp}>
-              A range of options to meet your needs and schedule.
+            <motion.h2 className="text-3xl font-semibold text-[#1F4E5F]" style={{ fontFamily: "var(--font-cormorant)" }} variants={fadeUp}>How I Can Help</motion.h2>
+            <motion.p className="mt-2 text-[#1F4E5F]/80" style={{ fontFamily: "var(--font-body)" }} variants={fadeUp}>
+              Evidence-based therapeutic services tailored to your unique needs and goals.
             </motion.p>
           </div>
-          <motion.span className="text-sm font-semibold text-[#2E4A2F]/70" variants={fadeUp}>
-            Sliding scale available
+          <motion.span className="text-sm font-semibold text-[#7A9E8E]" style={{ fontFamily: "var(--font-body)" }} variants={fadeUp}>
+            Sliding scale fees available
           </motion.span>
         </motion.div>
         <motion.div 
@@ -52,13 +52,13 @@ export default function Services() {
           {services.map((service) => (
             <motion.div
               key={service.title}
-              className="rounded-3xl border border-[#2E4A2F]/20 bg-[#FBF6EE] p-8"
+              className="rounded-3xl border border-[#1F4E5F]/20 bg-[#F5F0E8] p-8"
               variants={cardVariant}
             >
-              <h3 className="text-xl font-semibold text-[#2E4A2F]">
+              <h3 className="text-xl font-semibold text-[#1F4E5F]" style={{ fontFamily: "var(--font-cormorant)" }}>
                 {service.title}
               </h3>
-              <p className="mt-3 text-[#2E4A2F]/80">{service.description}</p>
+              <p className="mt-3 text-[#1F4E5F]/80" style={{ fontFamily: "var(--font-body)" }}>{service.description}</p>
             </motion.div>
           ))}
         </motion.div>

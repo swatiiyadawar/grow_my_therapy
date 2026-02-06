@@ -1,6 +1,19 @@
 :root {
-  --background: #f8f3ef;
-  --foreground: #2b3b2b;
+  /* New Ocean-Inspired Therapy Color Palette */
+  --color-primary: #1F4E5F;        /* Deep Teal - Primary text, headings */
+  --color-secondary: #F5F0E8;       /* Soft Sand - Main background */
+  --color-secondary-alt: #E5DED4;   /* Warm Stone - Card backgrounds */
+  --color-accent: #7A9E8E;          /* Sage Green - Accents, highlights */
+  --color-accent-alt: #C9A7A2;      /* Dusty Rose - Soft accent */
+  --color-cta: #4A7C6F;             /* Deep Sage - CTA sections */
+  --color-light: #FAF8F5;           /* Light Cream - Light backgrounds */
+  --color-muted: #8B9A95;           /* Muted Teal - Secondary text */
+  --color-image-bg: #D5CEC4;        /* Warm Gray - Image placeholders */
+  --color-lavender: #D8D4DE;        /* Soft Lavender - Alternate sections */
+  --color-contact-bg: #DDD8D0;      /* Contact page background */
+  
+  --background: #FAF8F5;
+  --foreground: #1F4E5F;
 }
 
 @media (prefers-color-scheme: dark) {

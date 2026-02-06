@@ -7,9 +7,25 @@ import ContactNotice from "./ContactNotice";
 export default function ContactContent() {
   return (
     <>
-    <section className="bg-[#D6D3DC] min-h-screen py-32 md:py-40 px-8 md:px-12 lg:px-16">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-32 lg:gap-32 items-start">
+    <section className="bg-[#C9A7A2] min-h-screen pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20 lg:pb-28 px-4 sm:px-6 md:px-12 lg:px-20">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Main Heading */}
+        <motion.h1 
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeUp}
+          className="text-[#1F4E5F] leading-[1.1] tracking-[-0.02em] mb-8 sm:mb-10 md:mb-12"
+          style={{ 
+            fontFamily: "var(--font-cormorant)",
+            fontSize: 'clamp(36px, 7vw, 64px)',
+            fontWeight: 600,
+          }}
+        >
+          Let's Connect
+        </motion.h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-16 items-start">
           
           {/* LEFT COLUMN - Text & Images */}
           <motion.div
@@ -17,97 +33,52 @@ export default function ContactContent() {
             whileInView="visible"
             viewport={viewportOptions}
             variants={staggerContainer}
-            className="space-y-16 md:space-y-20"
+            className="space-y-5 sm:space-y-6"
           >
-            {/* Heading */}
-            <motion.div variants={fadeUp} className="space-y-8">
-              <h1 className="text-5xl md:text-6xl font-semibold text-[#2F3B1F] leading-tight">
-                Let's Connect
-              </h1>
-
-              <p className="text-lg md:text-xl text-[#4A5540] leading-relaxed max-w-xl font-light">
-                Starting therapy is courageous. Get in touch for questions, or to book a free 15-minute consultation.
-              </p>
-            </motion.div>
-
-            {/* Contact Info */}
-            <motion.div
-              variants={staggerContainer}
-              className="space-y-10 pt-8"
+            {/* Description */}
+            <motion.p 
+              variants={fadeUp} 
+              className="text-[#1F4E5F] text-sm sm:text-base md:text-lg leading-[1.7] sm:leading-relaxed"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
             >
-              <motion.div variants={fadeUp} className="space-y-2">
-                <p className="text-sm font-semibold text-[#2F3B1F] uppercase tracking-widest">
-                  Phone
-                </p>
-                <a
-                  href="tel:+14165551234"
-                  className="text-lg text-[#4A5540] hover:text-[#2F3B1F] transition-colors font-light"
-                >
-                  (416) 555-1234
-                </a>
-              </motion.div>
-
-              <motion.div variants={fadeUp} className="space-y-2">
-                <p className="text-sm font-semibold text-[#2F3B1F] uppercase tracking-widest">
-                  Email
-                </p>
-                <a
-                  href="mailto:hello@growtherapy.com"
-                  className="text-lg text-[#4A5540] hover:text-[#2F3B1F] transition-colors font-light"
-                >
-                  hello@growtherapy.com
-                </a>
-              </motion.div>
-
-              <motion.div variants={fadeUp} className="space-y-2">
-                <p className="text-sm font-semibold text-[#2F3B1F] uppercase tracking-widest">
-                  Location
-                </p>
-                <p className="text-lg text-[#4A5540] font-light">
-                  Toronto, ON
-                </p>
-              </motion.div>
-            </motion.div>
-
-            {/* CTA Button */}
-            <motion.a
-              href="#book"
-              variants={fadeUp}
-              className="inline-block mt-12"
+              Starting therapy is courageous.
+            </motion.p>
+            
+            <motion.p 
+              variants={fadeUp} 
+              className="text-[#1F4E5F] text-sm sm:text-base md:text-lg leading-[1.7] sm:leading-relaxed max-w-lg"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
             >
-              <button className="bg-[#2F3B1F] text-[#F7F4EE] px-8 py-3 font-medium hover:bg-[#1a2312] transition-colors">
-                Schedule Free Consultation
-              </button>
-            </motion.a>
+              Get in touch for questions, or to book a free 15-minute consultation.
+            </motion.p>
 
             {/* Images Section */}
             <motion.div
               variants={fadeLeft}
-              className="pt-20 md:pt-24 flex items-end gap-8 md:gap-10"
+              className="pt-4 sm:pt-6 md:pt-8 relative"
             >
               {/* Tall arch image */}
-              <div className="flex-1 max-w-sm">
-                <div className="h-96 md:h-[480px] overflow-hidden bg-[#e8ded4]">
-                  <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a775?w=600&h=800&fit=crop"
-                    alt="Therapy session"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              <div 
+                className="w-[220px] sm:w-[260px] md:w-[300px] lg:w-[320px] h-[300px] sm:h-[360px] md:h-[420px] lg:h-[450px] overflow-hidden bg-[#E5DED4]"
+                style={{ borderRadius: '9999px 9999px 0 0' }}
+              >
+                <img
+                  src="/images/maya.jpg"
+                  alt="Person with lilac flowers"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Circular overlapping image */}
-              <motion.div
-                variants={fadeLeft}
-                transition={{ delay: 0.2 }}
-                className="w-40 h-40 md:w-52 md:h-52 overflow-hidden bg-[#e8ded4] flex-shrink-0 -ml-12 md:-ml-16"
+              <div
+                className="absolute bottom-0 right-0 lg:right-auto lg:left-[200px] md:left-[180px] sm:left-[140px] left-[100px] w-[110px] h-[110px] sm:w-[140px] sm:h-[140px] md:w-[160px] md:h-[160px] lg:w-[180px] lg:h-[180px] rounded-full overflow-hidden bg-[#E5DED4] border-3 sm:border-4 border-[#C9A7A2]"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
-                  alt="Profile"
+                  src="/images/white.jpeg"
+                  alt="White flowers"
                   className="w-full h-full object-cover"
                 />
-              </motion.div>
+              </div>
             </motion.div>
           </motion.div>
 
@@ -116,7 +87,7 @@ export default function ContactContent() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOptions}
-            className=""
+            className="w-full"
           >
             <ContactNotice />
           </motion.div>
@@ -124,53 +95,66 @@ export default function ContactContent() {
       </div>
     </section>
 
-    <section className="bg-[#ECE7DF] py-32 md:py-40 px-8 md:px-12 lg:px-16" id="book">
+    <section className="bg-[#F5F0E8] py-12 sm:py-16 md:py-20 lg:py-28 px-4 sm:px-6 md:px-12 lg:px-20" id="book">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={viewportOptions}
         variants={staggerContainer}
-        className="max-w-[800px] mx-auto text-center space-y-8"
+        className="max-w-[900px] mx-auto text-center"
       >
         <motion.h2
           variants={fadeUp}
-          className="text-5xl md:text-6xl font-semibold text-[#2F3B1F] tracking-tight"
+          className="text-[#1F4E5F] leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8"
+          style={{ 
+            fontFamily: "var(--font-cormorant)",
+            fontSize: 'clamp(32px, 5vw, 52px)',
+            fontWeight: 600,
+          }}
         >
           Book an appointment.
         </motion.h2>
 
         <motion.p
           variants={fadeUp}
-          className="text-lg md:text-xl text-[#4A5540] leading-relaxed max-w-[600px] mx-auto font-light"
+          className="text-[#1F4E5F] text-sm sm:text-base md:text-lg leading-[1.7] sm:leading-[1.8] max-w-[700px] mx-auto mb-12 md:mb-16"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
         >
-          Choose a time that feels right for you. This space is designed to make scheduling simple, calm, and clear.
+          I offer both in-person therapy from my Santa Monica office and secure telehealth sessions for clients located in California. Use the calendar below to book your initial consultation.
         </motion.p>
 
         <motion.div
           variants={fadeUp}
-          className="mt-20 md:mt-24 flex justify-center"
+          className="flex justify-center"
         >
-          <div className="bg-white w-full max-w-[480px] px-10 md:px-12 py-10 md:py-12 text-center">
-            <h3 className="text-xl md:text-2xl font-semibold text-[#1E1E1E]">
+          <div className="bg-white w-full max-w-[520px] px-10 md:px-12 py-10 md:py-12 text-center shadow-sm">
+            <h3 
+              className="text-[#1E1E1E] text-xl md:text-2xl mb-4"
+              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+            >
               This page is not active
             </h3>
-            <p className="mt-4 text-sm md:text-base text-[#6B6B6B] leading-relaxed">
-              Scheduling will be available soon. For now, please contact us directly to book your consultation.
+            <p 
+              className="text-[#6B6B6B] text-sm md:text-base leading-relaxed mb-8"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+            >
+              If you're the owner, please log into your account to start a free trial or subscribe.
             </p>
-            <div className="mt-8 flex justify-center">
-              <button className="bg-black text-white px-5 py-3 text-sm md:text-base font-semibold uppercase tracking-wide hover:opacity-90 transition-opacity">
-                Contact us
-              </button>
-            </div>
+            <button 
+              className="bg-[#1E1E1E] text-white px-6 py-3 text-xs uppercase tracking-[0.15em] hover:opacity-90 transition-opacity"
+              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+            >
+              Go To Account
+            </button>
           </div>
         </motion.div>
       </motion.div>
     </section>
 
     {/* SECTION 3: My Office */}
-    <section className="bg-[#7A7A45] py-32 md:py-36 px-8 md:px-20 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-20 items-center">
+    <section className="bg-[#1F4E5F] py-12 sm:py-16 md:py-20 lg:py-28 px-4 sm:px-6 md:px-12 lg:px-20">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
           
           {/* Left Column - Text */}
           <motion.div
@@ -178,38 +162,63 @@ export default function ContactContent() {
             whileInView="visible"
             viewport={viewportOptions}
             variants={staggerContainer}
-            className="space-y-12"
+            className="space-y-6 md:space-y-8"
           >
             <motion.h2
               variants={fadeUp}
-              className="text-4xl md:text-5xl font-semibold text-[#F5F2EB] leading-tight"
+              className="text-white leading-[1.1] tracking-[-0.02em]"
+              style={{ 
+                fontFamily: "var(--font-cormorant)",
+                fontSize: 'clamp(28px, 5vw, 44px)',
+                fontWeight: 500,
+              }}
             >
               My Office
             </motion.h2>
 
-            <motion.div variants={fadeUp} className="space-y-3">
-              <p className="text-lg text-[#F5F2EB] leading-relaxed font-light">
-                123 Queen Street West
+            <motion.div variants={fadeUp} className="space-y-1">
+              <p 
+                className="text-white text-xs sm:text-sm md:text-base lg:text-lg"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                123th Street 45 W
               </p>
-              <p className="text-lg text-[#F5F2EB] leading-relaxed font-light">
-                Suite 456
-              </p>
-              <p className="text-lg text-[#F5F2EB] leading-relaxed font-light">
-                Toronto, ON M5H 2M9
+              <p 
+                className="text-white text-xs sm:text-sm md:text-base lg:text-lg"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                Santa Monica, CA 90401
               </p>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="pt-8 space-y-4">
-              <h3 className="text-xl font-semibold text-[#F5F2EB]">
+            <motion.div variants={fadeUp} className="pt-2 md:pt-4 space-y-2">
+              <h3 
+                className="text-white text-lg sm:text-xl md:text-2xl"
+                style={{ fontFamily: "var(--font-cormorant)", fontWeight: 500 }}
+              >
                 Hours
               </h3>
-              <p className="text-lg text-[#F5F2EB] leading-relaxed font-light">
-                Monday – Friday: 9:00 AM – 6:00 PM
+              <p 
+                className="text-white text-xs sm:text-sm md:text-base lg:text-lg"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                Monday – Friday
               </p>
-              <p className="text-lg text-[#F5F2EB] leading-relaxed font-light">
-                Saturday: By appointment only
+              <p 
+                className="text-white text-xs sm:text-sm md:text-base lg:text-lg"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                9am – 6pm
               </p>
             </motion.div>
+
+            <motion.p 
+              variants={fadeUp} 
+              className="text-white/80 text-xs sm:text-sm md:text-base leading-[1.6] md:leading-relaxed pt-2 md:pt-4"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+            >
+              My office is a quiet, private space designed to feel calm and grounding, with natural light and a comfortable, uncluttered environment.
+            </motion.p>
           </motion.div>
 
           {/* Right Column - Map */}
@@ -220,12 +229,16 @@ export default function ContactContent() {
             variants={fadeLeft}
             className="flex justify-center lg:justify-end"
           >
-            <div className="w-full max-w-[520px] h-80 md:h-96 bg-gray-300 overflow-hidden">
-              <img
-                src="https://api.mapbox.com/styles/v1/mapbox/light-v11/static/-79.3832,43.6532,13,0/600x400@2x?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"
-                alt="Office location map"
-                className="w-full h-full object-cover grayscale"
-              />
+            <div className="w-full max-w-[600px] h-[280px] sm:h-[350px] md:h-[400px] lg:h-[420px] bg-gray-200 overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52877.27479540685!2d-118.5073395!3d34.0194543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2a4cec2910019%3A0xb4170ab5ff23f5ab!2sSanta%20Monica%2C%20CA!5e0!3m2!1sen!2sus!4v1706900000000!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'grayscale(100%)' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </motion.div>
         </div>
@@ -233,14 +246,19 @@ export default function ContactContent() {
     </section>
 
     {/* SECTION 4: Find me on social */}
-    <section className="bg-[#ECE7DF] py-32 md:py-36 px-8 md:px-20 lg:px-24">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#FAF8F5] py-12 sm:py-16 md:py-20 lg:py-28 px-4 sm:px-6 md:px-12 lg:px-20 border-b-2">
+      <div className="max-w-[1400px] mx-auto">
         <motion.h2
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
           variants={fadeUp}
-          className="text-4xl md:text-5xl font-semibold text-[#2F3B1F] mb-12 md:mb-16"
+          className="text-[#1F4E5F] leading-[1.1] tracking-[-0.02em] mb-8 sm:mb-10 md:mb-12 lg:mb-14"
+          style={{ 
+            fontFamily: "var(--font-cormorant)",
+            fontSize: 'clamp(28px, 5vw, 44px)',
+            fontWeight: 600,
+          }}
         >
           Find me on social.
         </motion.h2>
@@ -250,37 +268,37 @@ export default function ContactContent() {
           whileInView="visible"
           viewport={viewportOptions}
           variants={staggerContainer}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 lg:gap-6"
         >
-          <motion.div variants={fadeUp} className="aspect-square bg-gray-200 overflow-hidden">
+          <motion.div variants={fadeUp} className="aspect-square bg-gray-200 overflow-hidden rounded-sm">
             <img
-              src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&h=400&fit=crop"
-              alt="Social post"
-              className="w-full h-full object-cover"
+              src="./images/social.jpg"
+              alt="Social post - lilac flowers"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </motion.div>
 
-          <motion.div variants={fadeUp} className="aspect-square bg-gray-200 overflow-hidden">
+          <motion.div variants={fadeUp} className="aspect-square bg-gray-200 overflow-hidden rounded-sm">
             <img
-              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=400&fit=crop"
-              alt="Social post"
-              className="w-full h-full object-cover"
+              src="./images/specialist3.jpg"
+              alt="Social post - reading books"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </motion.div>
 
-          <motion.div variants={fadeUp} className="aspect-square bg-gray-200 overflow-hidden">
+          <motion.div variants={fadeUp} className="aspect-square bg-gray-200 overflow-hidden rounded-sm hidden md:block">
             <img
-              src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=400&h=400&fit=crop"
-              alt="Social post"
-              className="w-full h-full object-cover"
+              src="./images/about.jpg"
+              alt="Social post - coffee and journal"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </motion.div>
 
-          <motion.div variants={fadeUp} className="aspect-square bg-gray-200 overflow-hidden">
+          <motion.div variants={fadeUp} className="aspect-square bg-gray-200 overflow-hidden rounded-sm hidden lg:block">
             <img
-              src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=400&h=400&fit=crop"
-              alt="Social post"
-              className="w-full h-full object-cover"
+              src="./images/hero1.jpg"
+              alt="Social post - lilac bouquet"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </motion.div>
         </motion.div>

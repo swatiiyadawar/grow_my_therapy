@@ -4,7 +4,7 @@ import ContactContent from "@/components/sections/ContactContent";
 
 export default function ContactPage() {
   return (
-    <div className="bg-[#D6D3DC] text-neutral-900">
+    <div className="bg-[#E5DED4] text-neutral-900">
       <Navbar />
 
       <main>

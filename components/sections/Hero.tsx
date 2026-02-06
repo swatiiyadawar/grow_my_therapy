@@ -5,58 +5,74 @@ import { fadeLeft, fadeUp, staggerContainer } from "@/lib/animations";
 
 export default function Hero() {
   return (
-    <section id="hero" className="bg-[#FBF6EE] min-h-screen flex items-center relative">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-20 lg:px-24 w-full py-32 md:py-40">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 items-center">
-          
-          {/* Left Column - Arched Image */}
-          <motion.div 
-            className="order-2 md:order-1 flex justify-center md:justify-start"
-            initial="hidden"
-            animate="visible"
-            variants={fadeLeft}
+    <section id="hero" className="bg-[#FAF8F5] min-h-[130vh] relative overflow-hidden">
+      <div className="flex flex-col lg:flex-row min-h-[130vh]">
+        
+        {/* Left Column - Arched Image */}
+        <motion.div 
+          className="lg:w-[45%] flex items-end justify-center lg:justify-end pt-20 lg:pt-0"
+          initial="hidden"
+          animate="visible"
+          variants={fadeLeft}
+        >
+          <div 
+            className="relative w-[90%] max-w-[650px] lg:max-w-none lg:w-[90%] h-[80vh] md:h-[90vh] lg:h-[110vh] overflow-hidden bg-[#D5CEC4]"
+            style={{ 
+              borderRadius: '9999px 9999px 0 0',
+            }}
           >
-            <div className="relative w-full max-w-md aspect-[3/4] overflow-hidden" style={{ borderRadius: '9999px 9999px 0 0' }}>
-              <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80"
-                alt="Therapy session"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </motion.div>
+            <img
+              src="/images/hero1.jpg"
+              alt="Dr. Maya Reynolds - Licensed Clinical Psychologist in Santa Monica providing anxiety and trauma therapy"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+        </motion.div>
 
-          {/* Right Column - Text Content */}
-          <motion.div 
-            className="order-1 md:order-2 text-center md:text-left space-y-8"
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-          >
+        {/* Right Column - Text Content */}
+        <motion.div 
+          className="lg:w-[55%] flex items-center justify-center lg:items-center lg:justify-center px-6 md:px-12 lg:px-16 py-16 lg:py-0 mt-12 lg:mt-0"
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+        >
+          <div className="flex flex-col justify-center items-center text-center max-w-2xl">
             {/* Headline */}
             <motion.h1 
-              className="text-5xl md:text-6xl font-semibold text-[#2E4A2F] leading-[1.1]"
+              className="text-[#1F4E5F] leading-[1.2] tracking-[-0.02em]"
+              style={{ 
+                fontFamily: "var(--font-cormorant)",
+                fontSize: 'clamp(52px, 7vw, 80px)',
+                fontWeight: 500,
+              }}
               variants={fadeUp}
             >
-              Live your life in full bloom
+              Therapy for Anxiety, Trauma & Burnout in Santa Monica
             </motion.h1>
 
             {/* Subheadline */}
             <motion.p 
-              className="text-base md:text-lg text-[#2E4A2F] opacity-75 leading-[1.6] max-w-xl"
+              className="text-[#1F4E5F] text-base md:text-lg leading-[1.6] md:leading-[1.9] mt-12 md:mt-14"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               variants={fadeUp}
             >
-              Compassionate, evidence-based therapy for adults seeking healing, growth, and meaningful transformation.
+              Licensed clinical psychologist specializing in evidence-based therapy—EMDR, CBT, mindfulness, and somatic work—for high-achieving adults feeling overwhelmed, stuck, or emotionally on edge. Compassionate, grounded care both in-person and online.
             </motion.p>
 
             {/* CTA Button */}
-            <motion.div className="pt-4" variants={fadeUp}>
-              <button className="border border-[#2E4A2F] border-opacity-50 bg-transparent text-[#2E4A2F] hover:bg-[#2E4A2F] hover:bg-opacity-5 px-8 py-3 rounded transition-all duration-200 text-xs uppercase tracking-[0.1em] font-medium">
-                Get Started
-              </button>
+            <motion.div className="pt-10 md:pt-12" variants={fadeUp}>
+              <a 
+                href="/contact"
+                className="inline-flex items-center gap-4 border border-[#1F4E5F] bg-transparent text-[#1F4E5F] hover:bg-[#1F4E5F] hover:text-[#FAF8F5] px-10 py-3 transition-all duration-300 text-xs uppercase tracking-[0.2em]"
+                style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+              >
+                Schedule a Free Consultation
+                <span className="text-lg">→</span>
+              </a>
             </motion.div>
-          </motion.div>
+          </div>
+        </motion.div>
 
-        </div>
       </div>
     </section>
   );

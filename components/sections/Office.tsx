@@ -5,67 +5,144 @@ import { fadeLeft, fadeUp, staggerContainer, viewportOptions } from "@/lib/anima
 
 export default function Growth() {
   return (
-    <section id="growth" className="py-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-0 min-h-screen md:min-h-auto">
-        {/* Left Column - Brown with Image */}
+    <section id="growth" className="bg-[#FAF8F5]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[700px] lg:min-h-[800px]">
+        
+        {/* Left Column - Full Height Image */}
         <motion.div 
-          className="bg-gradient-to-br from-[#6B4423] to-[#8B5A3C] flex items-center justify-center overflow-hidden"
+          className="relative min-h-[400px] lg:min-h-full"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
           variants={fadeLeft}
         >
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80')] bg-cover bg-center" />
+          <img
+            src="./images/office.jpg"
+            alt="Woman relaxing peacefully"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </motion.div>
 
-        {/* Right Column - Purple with Content */}
-        <motion.div 
-          className="bg-gradient-to-br from-[#5B4B7A] to-[#7B6B9A] p-8 md:p-16 lg:p-20 flex flex-col justify-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOptions}
-          variants={staggerContainer}
-        >
-          <div className="max-w-2xl mx-auto w-full">
-            {/* Headline */}
-            <motion.h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6" variants={fadeUp}>
-              Transform Your Growth Journey
-            </motion.h2>
+        {/* Right Column - Soft accent background with Content */}
+        <div className="flex flex-col bg-[#C9A7A2] h-full">
+          {/* Content area with padding - centered vertically */}
+          <motion.div 
+            className="flex flex-col flex-1 justify-center px-8 md:px-12 lg:px-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={staggerContainer}
+          >
+            {/* Content */}
+            <div className="max-w-lg space-y-6">
+              {/* Headline */}
+              <motion.h2 
+                className="text-[#1F4E5F] leading-[1.1] tracking-[-0.02em]"
+                style={{ 
+                  fontFamily: "var(--font-cormorant)",
+                  fontSize: 'clamp(36px, 5vw, 52px)',
+                  fontWeight: 500,
+                }}
+                variants={fadeUp}
+              >
+                Looking successful on the outside, <em>struggling on the inside?</em>
+              </motion.h2>
 
-            {/* Body Text */}
-            <motion.p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-8" variants={fadeUp}>
-              Experience a comprehensive approach to personal and professional development. Our proven methodology combines personalized coaching with evidence-based strategies to accelerate your progress.
-            </motion.p>
+              {/* Subheading */}
+              <motion.p 
+                className="text-[#1F4E5F] text-base md:text-lg leading-[1.7] pt-2"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                variants={fadeUp}
+              >
+                You don't have to have it all figured out. Many of my clients experience:
+              </motion.p>
 
-            {/* Bullet List */}
-            <motion.ul className="space-y-4 md:space-y-5 mb-10" variants={staggerContainer}>
-              <motion.li className="flex items-start gap-4" variants={fadeUp}>
-                <span className="text-2xl text-purple-300 flex-shrink-0 pt-0.5">•</span>
-                <span className="text-base md:text-lg text-gray-100">Personalized coaching tailored to your unique goals and challenges</span>
-              </motion.li>
-              <motion.li className="flex items-start gap-4" variants={fadeUp}>
-                <span className="text-2xl text-purple-300 flex-shrink-0 pt-0.5">•</span>
-                <span className="text-base md:text-lg text-gray-100">Sustainable habit formation with ongoing accountability and support</span>
-              </motion.li>
-              <motion.li className="flex items-start gap-4" variants={fadeUp}>
-                <span className="text-2xl text-purple-300 flex-shrink-0 pt-0.5">•</span>
-                <span className="text-base md:text-lg text-gray-100">Measurable progress tracking and adaptive strategy refinement</span>
-              </motion.li>
-              <motion.li className="flex items-start gap-4" variants={fadeUp}>
-                <span className="text-2xl text-purple-300 flex-shrink-0 pt-0.5">•</span>
-                <span className="text-base md:text-lg text-gray-100">Holistic wellness integration across all life dimensions</span>
-              </motion.li>
-            </motion.ul>
+              {/* Bullet List */}
+              <motion.ul className="space-y-3 pt-2" variants={staggerContainer}>
+                <motion.li 
+                  className="flex items-start gap-3 text-[#1F4E5F] text-base md:text-lg"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                  variants={fadeUp}
+                >
+                  <span className="text-[#1F4E5F] flex-shrink-0">•</span>
+                  <span>Chronic anxiety, worry, or panic attacks</span>
+                </motion.li>
+                <motion.li 
+                  className="flex items-start gap-3 text-[#1F4E5F] text-base md:text-lg"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                  variants={fadeUp}
+                >
+                  <span className="text-[#1F4E5F] flex-shrink-0">•</span>
+                  <span>Unresolved trauma or PTSD symptoms</span>
+                </motion.li>
+                <motion.li 
+                  className="flex items-start gap-3 text-[#1F4E5F] text-base md:text-lg"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                  variants={fadeUp}
+                >
+                  <span className="text-[#1F4E5F] flex-shrink-0">•</span>
+                  <span>Burnout, exhaustion, and loss of motivation</span>
+                </motion.li>
+                <motion.li 
+                  className="flex items-start gap-3 text-[#1F4E5F] text-base md:text-lg"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                  variants={fadeUp}
+                >
+                  <span className="text-[#1F4E5F] flex-shrink-0">•</span>
+                  <span>Perfectionism and imposter syndrome</span>
+                </motion.li>
+                <motion.li 
+                  className="flex items-start gap-3 text-[#1F4E5F] text-base md:text-lg"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                  variants={fadeUp}
+                >
+                  <span className="text-[#1F4E5F] flex-shrink-0">•</span>
+                  <span>Difficulty with relationships and boundaries</span>
+                </motion.li>
+                <motion.li 
+                  className="flex items-start gap-3 text-[#1F4E5F] text-base md:text-lg"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                  variants={fadeUp}
+                >
+                  <span className="text-[#1F4E5F] flex-shrink-0">•</span>
+                  <span>Sleep issues and physical tension</span>
+                </motion.li>
+                <motion.li 
+                  className="flex items-start gap-3 text-[#1F4E5F] text-base md:text-lg"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                  variants={fadeUp}
+                >
+                  <span className="text-[#1F4E5F] flex-shrink-0">•</span>
+                  <span>Feeling emotionally disconnected or on edge</span>
+                </motion.li>
+              </motion.ul>
 
-            {/* Divider */}
-            <motion.div className="h-px bg-purple-400 bg-opacity-30 my-8" variants={fadeUp}></motion.div>
+              {/* Closing Text */}
+              <motion.p 
+                className="text-[#1F4E5F] text-base md:text-lg leading-[1.7] pt-4"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                variants={fadeUp}
+              >
+                Together, we'll create a safe space to understand what's happening, regulate your nervous system, and build lasting change—not just managing symptoms, but reclaiming your vitality and sense of self.
+              </motion.p>
+            </div>
+          </motion.div>
 
-            {/* CTA Button */}
-            <motion.button className="bg-white hover:bg-gray-50 text-[#6B4423] font-semibold px-8 md:px-10 py-4 md:py-5 rounded-lg transition-all duration-300 hover:shadow-2xl text-base md:text-lg" variants={fadeUp}>
-              Start Your Growth Today
-            </motion.button>
-          </div>
-        </motion.div>
+          {/* CTA Button at very bottom - full width dark teal bar */}
+          <motion.a 
+            href="/contact" 
+            className="flex items-center justify-center gap-3 bg-[#C9A7A2] text-[#1F4E5F] hover:bg-[#1F4E5F] hover:text-[#FAF8F5] text-xs uppercase tracking-[0.2em] transition-all duration-300 group w-full py-6 border-t border-[#1F4E5F]"
+            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={fadeUp}
+          >
+            <span>Start Your Healing Journey</span>
+            <span className="text-base group-hover:translate-x-1 transition-transform">→</span>
+          </motion.a>
+        </div>
+
       </div>
     </section>
   );

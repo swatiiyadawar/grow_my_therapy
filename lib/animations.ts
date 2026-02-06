@@ -13,7 +13,7 @@ export const fadeUp: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.35,
       ease: easeOut,
     },
   },
@@ -29,7 +29,7 @@ export const fadeLeft: Variants = {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.4,
       ease: easeOut,
     },
   },
@@ -45,7 +45,7 @@ export const fadeRight: Variants = {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.4,
       ease: easeOut,
     },
   },
@@ -59,7 +59,7 @@ export const fadeIn: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.3,
       ease: easeOut,
     },
   },
@@ -73,8 +73,8 @@ export const staggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
     },
   },
 };
@@ -89,7 +89,7 @@ export const cardVariant: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.3,
       ease: easeOut,
     },
   },
@@ -105,7 +105,7 @@ export const scaleUp: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.6,
+      duration: 0.35,
       ease: easeOut,
     },
   },

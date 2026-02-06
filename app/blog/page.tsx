@@ -6,7 +6,7 @@ import SubscribeSection from "@/components/blog/SubscribeSection";
 
 export default function BlogPage() {
   return (
-    <div className="bg-[#FAF7F2] text-neutral-900">
+    <div className="bg-[#FAF8F5] text-neutral-900">
       <Navbar />
       
       <main>

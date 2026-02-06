@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { easeOut } from "framer-motion";
-import { fadeUp, staggerContainer, viewportOptions } from "@/lib/animations";
+import { viewportOptions } from "@/lib/animations";
 
 interface BlogCardProps {
   image: string;
@@ -30,44 +29,54 @@ export default function BlogCard({ image, date, title, slug, index = 0 }: BlogCa
 
   return (
     <motion.article
-      className="space-y-6"
+      className="space-y-5"
       initial="hidden"
       whileInView="visible"
       viewport={viewportOptions}
       variants={cardVariant}
     >
-      {/* Image */}
-      <div className="w-full h-80 overflow-hidden bg-[#e8ded4]">
+      {/* Image - Larger */}
+      <div className="w-full h-[350px] md:h-[420px] overflow-hidden bg-[#E5DED4]">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
         />
       </div>
 
       {/* Content */}
-      <div className="space-y-3">
+      <div className="space-y-3 pt-2">
         {/* Date */}
-        <p className="text-sm text-[#5A6450]">
+        <p 
+          className="text-sm text-[#1F4E5F]"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
           {new Date(date).toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-          })}
+            month: 'numeric', 
+            day: 'numeric',
+            year: '2-digit'
+          }).replace(/\//g, '/')}
         </p>
 
-        {/* Title */}
-        <h3 className="text-2xl md:text-3xl font-semibold text-[#2F3B1F] leading-tight hover:text-[#5A6450] transition-colors">
+        {/* Title - Larger and Bolder */}
+        <h3 
+          className="text-[#1F4E5F] leading-[1.1] tracking-[-0.02em]"
+          style={{ 
+            fontFamily: "var(--font-cormorant)", 
+            fontSize: 'clamp(28px, 4vw, 42px)',
+            fontWeight: 500 
+          }}
+        >
           {title}
         </h3>
 
         {/* Read More Link */}
         <a
           href={`/blog/${slug}`}
-          className="inline-flex items-center gap-2 text-base text-[#2F3B1F] font-medium hover:gap-3 transition-all duration-300 group"
+          className="inline-block text-[#1F4E5F] hover:opacity-70 transition-opacity pt-2"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
         >
-          <span className="border-b border-[#2F3B1F]">Read More</span>
-          <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
+          <span className="underline underline-offset-4">Read More</span>
         </a>
       </div>
     </motion.article>

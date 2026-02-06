@@ -5,72 +5,87 @@ import { fadeRight, fadeUp, staggerContainer, viewportOptions } from "@/lib/anim
 
 export default function About() {
   return (
-    <section id="about" className="bg-[#e8ded4]">
-      <div className="grid grid-cols-1 md:grid-cols-2 min-h-[600px] md:min-h-[700px]">
+    <section id="about" className="bg-[#FAF8F5]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-auto lg:min-h-[700px]">
         
         {/* Left Column - Text Content (50%) */}
-        <motion.div 
-          className="flex items-center px-6 md:px-12 lg:px-20 py-16 md:py-20"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOptions}
-          variants={staggerContainer}
-        >
-          <div className="max-w-xl w-full space-y-8">
+        <div className="flex flex-col bg-[#E5DED4] h-full">
+          {/* Content area with padding */}
+          <motion.div 
+            className="flex flex-col flex-1 px-4 sm:px-8 md:px-12 lg:px-20 pt-8 sm:pt-12 md:pt-16 lg:pt-24 pb-6 sm:pb-8 lg:pb-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={staggerContainer}
+          >
+            {/* Spacer to push content to middle - hidden on mobile */}
+            <div className="hidden lg:flex flex-1"></div>
             
-            {/* Heading */}
-            <motion.h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2b3b2b] leading-tight"
-              variants={fadeUp}
-            >
-              Live a Fulfilling Life
-            </motion.h2>
+            {/* Content in the middle */}
+            <div className="max-w-lg space-y-4 sm:space-y-5 md:space-y-6">
+              
+              {/* Heading */}
+              <motion.h2 
+                className="text-[#1F4E5F] leading-[1.2] tracking-[-0.02em]"
+                style={{ 
+                  fontFamily: "var(--font-cormorant)",
+                  fontSize: 'clamp(28px, 6vw, 52px)',
+                  fontWeight: 500,
+                }}
+                variants={fadeUp}
+              >
+                Therapy That Honors Your Whole Self
+              </motion.h2>
 
-            {/* First Paragraph */}
-            <motion.p 
-              className="text-lg md:text-xl text-[#4b5a4b] leading-relaxed"
-              variants={fadeUp}
-            >
-              Life can be challenging—especially when you're trying to balance your personal and professional life, navigate relationships, and find meaning in the midst of daily pressures.
-            </motion.p>
+              {/* First Paragraph */}
+              <motion.p 
+                className="text-[#1F4E5F] text-sm sm:text-base md:text-lg leading-[1.7] sm:leading-[1.8]"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                variants={fadeUp}
+              >
+                I'm Dr. Maya Reynolds, PsyD, a licensed clinical psychologist in Santa Monica offering evidence-based therapy for adults struggling with anxiety, panic, trauma, burnout, and perfectionism. Many of my clients are high-achieving professionals, entrepreneurs, and creatives who appear "fine" on the outside while feeling exhausted, stuck in overthinking, or emotionally on edge.
+              </motion.p>
 
-            {/* Second Paragraph */}
-            <motion.p 
-              className="text-lg md:text-xl text-[#4b5a4b] leading-relaxed"
-              variants={fadeUp}
-            >
-              It's easy to feel like you're alone in facing these challenges, but I want you to know that I'm here to help. Together, we'll work through what's holding you back and create a path toward healing, growth, and lasting change.
-            </motion.p>
+              {/* Second Paragraph */}
+              <motion.p 
+                className="text-[#1F4E5F] text-sm sm:text-base md:text-lg leading-[1.7] sm:leading-[1.8]"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                variants={fadeUp}
+              >
+                I integrate CBT, EMDR, mindfulness-based practices, and somatic techniques to address both emotional and physiological sides of what you're experiencing. My warm, collaborative approach prioritizes safety, stabilization, and helping you feel more regulated—not just during sessions, but in your daily life. Healing happens when you feel truly understood and actively engaged in the process.
+              </motion.p>
+            </div>
 
-            {/* Divider */}
-            <motion.div 
-              className="h-px bg-[#d4c4a8] my-8"
-              variants={fadeUp}
-            ></motion.div>
+            {/* Spacer to push CTA to bottom - hidden on mobile */}
+            <div className="hidden lg:flex flex-1"></div>
+          </motion.div>
 
-            {/* Text CTA */}
-            <motion.a 
-              href="#contact" 
-              className="inline-flex items-center gap-3 text-base md:text-lg text-[#2b3b2b] font-semibold hover:gap-4 transition-all duration-300 group"
-              variants={fadeUp}
-            >
-              <span className="border-b-2 border-[#2b3b2b]">Get in Touch</span>
-              <span className="text-2xl group-hover:translate-x-1 transition-transform">→</span>
-            </motion.a>
-          </div>
-        </motion.div>
+          {/* CTA Button at very bottom - full width dark green bar (outside padding container) */}
+          <motion.a 
+            href="/contact" 
+            className="flex items-center justify-center gap-2 sm:gap-3 bg-[#E5DED4] text-[#1F4E5F] hover:bg-[#1F4E5F] hover:text-[#FAF8F5] text-xs sm:text-xs uppercase tracking-[0.2em] transition-all duration-300 group w-full py-4 sm:py-5 md:py-6 border-t border-[#1F4E5F]"
+            style={{ fontFamily: "var(--font-cormorant)", fontWeight: 600 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={fadeUp}
+          >
+            <span>Schedule a Consultation</span>
+            <span className="text-base group-hover:translate-x-1 transition-transform">→</span>
+          </motion.a>
+        </div>
 
         {/* Right Column - Full-Height Image (50%) */}
         <motion.div 
-          className="relative min-h-[400px] md:min-h-full order-first md:order-last"
+          className="relative min-h-[400px] lg:min-h-full"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
           variants={fadeRight}
         >
           <img
-            src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80"
-            alt="Peaceful therapy environment"
+            src="./images/about.jpg"
+            alt="Peaceful therapy environment with lilac flowers and coffee"
             className="absolute inset-0 w-full h-full object-cover"
           />
         </motion.div>

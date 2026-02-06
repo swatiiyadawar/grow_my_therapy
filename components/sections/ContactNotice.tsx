@@ -10,25 +10,32 @@ export default function ContactNotice() {
       whileInView="visible"
       viewport={viewportOptions}
       variants={fadeRight}
-      className="bg-[#243417] text-[#F7F4EE] p-12 md:p-16 w-full"
+      className="bg-[#1F4E5F] text-white p-8 sm:p-10 md:p-12 w-full"
     >
-      <motion.h3
-        variants={fadeRight}
-        className="text-sm md:text-base font-semibold uppercase tracking-wide mb-8 md:mb-10"
+      <p
+        className="text-sm sm:text-base md:text-lg leading-[1.7] sm:leading-[1.8] mb-6"
+        style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
       >
-        Please Note:
-      </motion.h3>
-
-      <motion.p
-        variants={fadeRight}
-        className="text-base md:text-lg leading-relaxed font-light"
+        <span 
+          className="font-bold uppercase tracking-wide"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
+        >
+          PLEASE NOTE:
+        </span>{" "}
+        If you opt to use a "Form Block" on your contact page this is not HIPAA-compliant. Squarespace stores data that is input into forms in the Marketing tab under Profiles. Instead, you can embed a HIPAA-compliant form, a link to your client portal, or simply put your email address.
+      </p>
+      <p
+        className="text-sm sm:text-base md:text-lg leading-[1.7] sm:leading-[1.8]"
+        style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
       >
-        All therapy sessions are protected under strict confidentiality and HIPAA
-        regulations. Any information you share during consultation or treatment
-        remains completely private. This is a safe, non-judgmental space dedicated
-        to your wellbeing and growth. If you have any privacy concerns, please feel
-        free to discuss them directly.
-      </motion.p>
+        <span 
+          className="font-bold uppercase tracking-wide"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
+        >
+          Email:
+        </span>{" "}
+        hello@drmayareynolds.com
+      </p>
     </motion.div>
   );
 }
